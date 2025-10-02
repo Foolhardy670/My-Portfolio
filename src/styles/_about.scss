@@ -1,0 +1,86 @@
+.about-section {
+  .about-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .about-card {
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
+  }
+
+  .intro-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-contact {
+    border-radius: 10px;
+    background: #0d0d0d;
+    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
+    border: none;
+    padding: 0.6rem 1.3rem;
+    color: #fff;
+    font-size: 0.9rem;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .btn-linkedin {
+    border-radius: 10px;
+    border: 2px solid #000;
+    background: #fff;
+    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
+    padding: 0.55rem 1.3rem;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .about-image-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 18px 18px 30px 0 #d1d9e6, -18px -18px 30px 0 #fff;
+    overflow: hidden;
+
+    .about-image {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
+
+  // Mobile adjustments
+  @media (max-width: 768px) {
+    .about-card {
+      text-align: left;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .about-image-wrapper {
+      margin-top: 2rem;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use "variables" as *;
+@use "navbar";
+@use "home";
+@use "projects";
+@use "contact";
+
+
+.app {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  &.light-mode {
+    background-color: $light-bg;
+    color: $dark-text;
+  }
+
+  &.dark-mode {
+    background-color: $dark-bg;
+    color: $light-text;
+  }
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

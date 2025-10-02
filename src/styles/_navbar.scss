@@ -1,0 +1,74 @@
+@use "variables";
+
+.custom-navbar {
+  border-radius: variables.$radius;
+    box-shadow: variables.$shadow;
+    background: variables.$card-bg;
+  margin-bottom: 4rem;
+
+  margin-left: 4rem;
+  margin-right: 4rem;
+
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .nav-link {
+    margin: 0 1rem;
+    font-weight: 600;
+  }
+
+  .nav-icon {
+    margin: 0 0.5rem;
+    color: inherit;
+    transition: color 0.3s;
+    &:hover {
+      color: #0d6efd;
+    }
+  }
+
+  .divider {
+    width: 1px;
+    height: 24px;
+    background: #ccc;
+    margin: 0 0.75rem;
+  }
+
+  .dark-toggle-btn {
+    background: none;
+    border: 2px solid #000;
+    border-radius: 50px;
+    padding: 0.2rem 0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Dark mode global overrides
+.app.dark-mode {
+  background-color: #121212;
+  color: #f8f9fa;
+
+  .custom-navbar {
+    background-color: #1f1f1f !important;
+    .nav-link,
+    .navbar-brand,
+    .nav-icon {
+      color: #f8f9fa !important;
+    }
+    .divider {
+      background: #555;
+    }
+    .dark-toggle-btn {
+      border-color: #f8f9fa;
+      color: #f8f9fa;
+    }
+  }
+}

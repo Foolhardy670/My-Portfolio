@@ -1,0 +1,93 @@
+@use "variables";
+@use "navbar";
+@use "home";
+@use "projects";
+@use "contact";
+
+/* Font setup */
+body {
+  font-family: "Inconsolata", monospace;
+}
+
+/* Headings use Space Mono */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Mono", monospace;
+  font-weight:bold
+}
+
+p,
+li,
+span,
+a,
+input,
+button {
+  font-family: "Inconsolata", monospace;
+  font-size: larger;
+  font-weight: normal;
+}
+
+:root {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global dark mode */
+.app.dark-mode {
+  background-color: #121212;
+  color: #f8f9fa;
+
+  /* Navbar overrides (already handled, but keep consistent) */
+  .custom-navbar {
+    background-color: #1f1f1f !important;
+
+    .nav-link,
+    .navbar-brand,
+    .nav-icon {
+      color: #f8f9fa !important;
+    }
+
+    .divider {
+      background: #555;
+    }
+  }
+
+  /* Card styling in Home */
+  .card {
+    background-color: #1e1e1e;
+    color: #f8f9fa;
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Buttons */
+  .btn {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+
+    &:hover {
+      background-color: #0b5ed7;
+    }
+  }
+
+  /* Images (optional dimming effect) */
+  img {
+    filter: brightness(0.9);
+  }
+}

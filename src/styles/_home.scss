@@ -1,0 +1,143 @@
+@use "variables";
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "intro profile tech"
+    "contact projects tech"
+    "contact projects education";
+  gap: 2rem;
+  
+  margin-left: 4rem;
+  margin-right: 4rem;
+
+  .card {
+    
+    padding: 1.5rem;
+    border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.25);
+background: rgba(255, 255, 255, 0.25);
+box-shadow: 18px 18px 30px 0 #D1D9E6, -18px -18px 30px 0 #FFF;
+   
+  
+  }
+
+  .intro {
+    grid-area: intro;
+  }
+
+  .profile {
+    grid-area: profile;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 100%;
+      border-radius: variables.$radius;
+    }
+  }
+
+  .tech-stack {
+    grid-area: tech;
+    ul {
+      padding: 0;
+      list-style: none;
+      li {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  .contact {
+    grid-area: contact;
+  }
+
+  .projects {
+    grid-area: projects;
+    text-align: center;
+    img {
+      max-width: 100%;
+      border-radius: variables.$radius;
+    }
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: variables.$radius;
+    cursor: pointer;
+  }
+
+  /* 📱 Mobile responsiveness */
+  @media (max-width: 1024px) { /* Tablets */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "intro profile"
+      "tech tech"
+      "projects projects"
+      "contact education";
+  }
+
+  @media (max-width: 768px) { /* Phones */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "profile"
+      "tech"
+      "projects"
+      "education"
+      "contact";
+  }
+}
+
+.tech-stack {
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+
+  .tech-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-top: 1rem;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+.tech-bar {
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    rgba(173, 189, 255, 0.6),
+    rgba(255, 228, 196, 0.6),
+    rgba(255, 245, 204, 0.6)
+  );
+}
+
+
+  span {
+    width: 110px;
+    font-weight: 500;
+    text-align: left;
+  }
+}
