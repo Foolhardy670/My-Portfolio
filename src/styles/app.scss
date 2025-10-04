@@ -4,31 +4,28 @@
 @use "projects";
 @use "contact";
 
-/* Font setup */
-body {
-  font-family: "Inconsolata", monospace;
-}
-
-/* Headings use Space Mono */
+/* Headers */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Space Mono", monospace;
-  font-weight:bold
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
 
+/* Body text */
+body,
 p,
 li,
 span,
 a,
 input,
 button {
-  font-family: "Inconsolata", monospace;
-  font-size: larger;
-  font-weight: normal;
+  font-family: "Lato", sans-serif;
+  font-weight:normal;
+  font-size: normal;
 }
 
 :root {
@@ -89,5 +86,52 @@ button {
   /* Images (optional dimming effect) */
   img {
     filter: brightness(0.9);
+  }
+}
+
+/* ✅ Add below your existing imports in app.scss */
+
+body,
+.card,
+.btn,
+.navbar,
+.project-card {
+  transition: background-color 250ms ease, color 250ms ease,
+    border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+  position: relative;
+
+  .tech-bar {
+    height: 10px;
+    min-width: 0;
+    border-radius: 999px;
+    background: linear-gradient(
+      270deg,
+      rgba(255, 184, 0, 0.18) 12.53%,
+      rgba(233, 63, 63, 0.1) 46.28%,
+      rgba(63, 100, 233, 0.18) 82.97%
+    );
+    flex: 1 1 auto;
+  }
+
+  span {
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

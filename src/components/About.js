@@ -1,72 +1,101 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
+import { containerVariants, itemVariants } from "./animations";
 import "../styles/_about.scss";
-import aboutImg from "../assets/profile.jpg"; // <-- update to your image
+import aboutImg from "../assets/profile.jpg"; // update to actual image
 
 function About() {
   const handleContactScroll = () => {
     const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="about-section py-2">
+    <section className="about-section py-5">
       <Container>
-        {/* Heading */}
-        <div className="text-center mb-5">
-          <h2 className="about-title">About Me</h2>
-          <p className="about-subtitle">
+        <motion.div
+          className="text-center mb-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <motion.h2 className="about-title" variants={itemVariants}>
+            About Me
+          </motion.h2>
+          <motion.p className="about-subtitle" variants={itemVariants}>
             Get to know more about my background and skills
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {/* Main Content */}
         <Row className="align-items-center">
-          {/* Text Card */}
           <Col lg={8} md={12} className="mb-4 mb-lg-0">
-            <div className="about-card p-4 p-md-5 ">
-              <h4 className="intro-title">Hello My name is Christian.</h4>
-
-              <p className="about-text">
+            <motion.div
+              className="about-card p-4 p-md-5 "
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <motion.h4 className="intro-title" variants={itemVariants}>
+                Hello My name is Christian.
+              </motion.h4>
+              <motion.p className="about-text" variants={itemVariants}>
                 Hello World! 🌍 I'm Christian Simpore, a passionate and driven
                 undergraduate student at Weber State University in the vibrant
                 city of Ogden, Utah. As a senior pursuing a degree in web
                 development, I'm on a mission to turn my love for technology
-                into impactful solutions that make a difference. I'm excited to
+                into impact solutions that make a difference. I'm excited to
                 take the next big leap in my journey and partner with a
                 forward-thinking company that values innovation, collaboration,
                 and growth. If you're looking for someone who's enthusiastic,
                 curious, and ready to contribute to meaningful projects, let's
-                connect! 🤝
-                <br />
-                Feel free to reach out via the contact form below or check out
-                my work and connect with me here:
-              </p>
+                connect! 🤝 Feel free to reach out via the contact form below or
+                check out my work and connect with me here:
+              </motion.p>
 
-              {/* Buttons */}
-              <div className="d-flex gap-3 mt-4 flex-wrap">
-                <Button className="btn-contact" onClick={handleContactScroll}>
+              <motion.div
+                className="d-flex gap-3 mt-4 flex-wrap"
+                variants={containerVariants}
+              >
+                <motion.button
+                  className="btn-contact"
+                  onClick={handleContactScroll}
+                  variants={itemVariants}
+                >
                   Contact Me
-                </Button>
-                <a
+                </motion.button>
+                <motion.a
+                  variants={itemVariants}
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-linkedin"
                 >
                   LinkedIn
-                </a>
-              </div>
-            </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
           </Col>
 
-          {/* Image */}
           <Col lg={4} md={12} className="text-center">
-            <div className="about-image-wrapper ">
-              <img src={aboutImg} alt="Christian" className="about-image" />
-            </div>
+            <motion.div
+              className="about-image-wrapper "
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <motion.img
+                variants={itemVariants}
+                src={aboutImg}
+                alt="Christian"
+                loading="lazy"
+                decoding="async"
+                className="about-image"
+              />
+            </motion.div>
           </Col>
         </Row>
       </Container>

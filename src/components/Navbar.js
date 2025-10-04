@@ -36,7 +36,7 @@ function NavigationBar({ darkMode, toggleDarkMode }) {
 
           <div className="d-flex align-items-center">
             <a
-              href="https://github.com"
+              href="https://github.com/Foolhardy670"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-icon"
@@ -44,7 +44,7 @@ function NavigationBar({ darkMode, toggleDarkMode }) {
               <FaGithub size={22} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/christian-simpore-b7b38025b/"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-icon"
