@@ -1,7 +1,5 @@
-@use "variables";
-
+// _contact.scss
 .contact-page {
-    
   .contact-title {
     font-size: 2rem;
     font-weight: 700;
@@ -14,13 +12,7 @@
 
   .contact-card {
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 18px 18px 30px 0 #d1d9e6, -18px -18px 30px 0 #fff;
-  }
-
-  .shadow-card {
-    box-shadow: variables.$shadow;
+    transition: all 0.3s ease;
   }
 
   .card-subtext {
@@ -34,10 +26,11 @@
     border: none;
     font-size: 0.9rem;
     border-radius: 6px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 
     &:hover {
       opacity: 0.9;
+      transform: translateY(-2px);
     }
   }
 
@@ -45,6 +38,7 @@
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    transition: all 0.3s ease;
 
     .contact-icon {
       font-size: 1.3rem;
@@ -55,53 +49,27 @@
       font-size: 1rem;
       text-decoration: none;
       color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateX(5px);
     }
   }
-}
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .contact-page {
-    .contact-title {
-      font-size: 1.6rem;
-    }
-    .send-btn {
-      width: 100%;
-    }
-  }
-  .other-ways-card {
-    border-radius: 20px;
-    background: #ffffff;
-    padding: 2rem;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-
-    .other-ways-title {
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #333;
+  // Dark mode
+  .app.dark-mode & {
+    .contact-subtitle {
+      color: #bbb;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
+    .card-subtext {
+      color: #aaa;
+    }
 
-      .contact-icon {
-        font-size: 1.8rem;
-        color: #333;
-        flex-shrink: 0;
-      }
-
-      .contact-text,
-      .contact-link {
-        font-size: 1rem;
-        font-weight: 500;
-        color: #000;
-        text-decoration: none;
-      }
-
-      .contact-link:hover {
-        text-decoration: underline;
-      }
+    .contact-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
     }
   }
 }

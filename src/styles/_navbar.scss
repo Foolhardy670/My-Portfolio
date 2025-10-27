@@ -1,14 +1,10 @@
-@use "variables";
-
+// _navbar.scss
 .custom-navbar {
-  border-radius: variables.$radius;
-    box-shadow: variables.$shadow;
-    background: variables.$card-bg;
+  border-radius: 18px;
   margin-bottom: 4rem;
-
   margin-left: 4rem;
   margin-right: 4rem;
-
+  transition: all 0.3s ease;
 
   .navbar-brand {
     font-weight: 700;
@@ -18,14 +14,21 @@
   .nav-link {
     margin: 0 1rem;
     font-weight: 600;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #0d6efd !important;
+    }
   }
 
   .nav-icon {
     margin: 0 0.5rem;
     color: inherit;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    
     &:hover {
-      color: #0d6efd;
+      color: #0d6efd !important;
+      transform: scale(1.1);
     }
   }
 
@@ -34,6 +37,7 @@
     height: 24px;
     background: #ccc;
     margin: 0 0.75rem;
+    transition: background 0.3s ease;
   }
 
   .dark-toggle-btn {
@@ -43,29 +47,28 @@
     padding: 0.2rem 0.6rem;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 
     &:hover {
       transform: scale(1.05);
     }
   }
-}
 
-// Dark mode global overrides
-.app.dark-mode {
-  background-color: #121212;
-  color: #f8f9fa;
-
-  .custom-navbar {
+  // Dark mode
+  .app.dark-mode & {
     background-color: #1f1f1f !important;
+    border: 1px solid #333;
+    
     .nav-link,
     .navbar-brand,
     .nav-icon {
       color: #f8f9fa !important;
     }
+    
     .divider {
       background: #555;
     }
+    
     .dark-toggle-btn {
       border-color: #f8f9fa;
       color: #f8f9fa;

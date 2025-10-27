@@ -1,6 +1,5 @@
+// Home.js
 import React from "react";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants, widthVariants } from "./animations";
 import profile from "../assets/profile.jpg";
 import projectImg from "../assets/projects.jpg";
 import { Link } from "react-router-dom";
@@ -19,23 +18,13 @@ function Home() {
 
   return (
     <main className="home container py-5">
-      {/* Intro */}
-      <motion.section
-        className="intro card p-4 p-md-5 mb-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.h2 variants={itemVariants} className="fw-bold">
-          HI, I'm Christian Simpore
-        </motion.h2>
-        <motion.p variants={itemVariants}>
+      <section className="intro card p-4 p-md-5 mb-4 fade-in">
+        <h2 className="fw-bold">HI, I'm Christian Simpore</h2>
+        <p>
           I am a dedicated Full Stack Developer based in Utah, committed to
           creating websites that deliver exceptional user experiences.
-        </motion.p>
-        <motion.button
-          variants={itemVariants}
+        </p>
+        <button
           className="btn btn-short"
           onClick={() => {
             const link = document.createElement("a");
@@ -45,19 +34,11 @@ function Home() {
           }}
         >
           My Resume
-        </motion.button>
-      </motion.section>
+        </button>
+      </section>
 
-      {/* Profile */}
-      <motion.section
-        className="profile card p-0 overflow-hidden mb-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.img
-          variants={itemVariants}
+      <section className="profile card p-0 overflow-hidden mb-4 fade-in-up">
+        <img
           src={profile}
           alt="Christian Simpore"
           loading="lazy"
@@ -65,76 +46,42 @@ function Home() {
           className="w-100"
           style={{ display: "block", objectFit: "cover", maxHeight: 420 }}
         />
-      </motion.section>
+      </section>
 
-      {/* Tech Stack */}
-      <motion.section
-        className="tech-stack card p-4 p-md-5 mb-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.h2 className="tech-title mb-3" variants={itemVariants}>
-          My Tech-Stack
-        </motion.h2>
+      <section className="tech-stack card p-4 p-md-5 mb-4 fade-in-up">
+        <h2 className="tech-title mb-3">My Tech-Stack</h2>
         <div className="tech-list">
           {techs.map((tech, i) => (
-            <motion.div
-              className="tech-item"
-              key={i}
-              variants={itemVariants}
-              style={{ position: "relative" }}
-            >
-              <motion.div
-                className="tech-bar"
-                variants={widthVariants(tech.width)}
-              />
-              <motion.span variants={itemVariants}>{tech.name}</motion.span>
-            </motion.div>
+            <div className="tech-item" key={i}>
+              <span>{tech.name}</span>
+              <div className="tech-bar-container">
+                <div className="tech-bar" style={{ width: tech.width }}></div>
+              </div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Contact */}
-      <motion.section
-        className="contact card p-4 p-md-5 "
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.h2 variants={itemVariants} className="fw-bold">
-          Get in touch_
-        </motion.h2>
-        <motion.p variants={itemVariants}>
-          I’m always open to new opportunities and conversations. Reach out!
-        </motion.p>
-        <motion.ul className="mb-0" variants={containerVariants}>
+      <section className="contact card p-4 p-md-5 fade-in-up">
+        <h2 className="fw-bold">Get in touch_</h2>
+        <p>
+          I'm always open to new opportunities and conversations. Reach out!
+        </p>
+        <ul className="mb-0">
           {[
             "📞 +1 (240) 505 8123",
             "📧 konteysimpore@gmail.com",
             "🔗 github.com",
             "🔗 linkedin.com",
           ].map((line, idx) => (
-            <motion.li key={idx} variants={itemVariants}>
-              {line}
-            </motion.li>
+            <li key={idx}>{line}</li>
           ))}
-        </motion.ul>
-      </motion.section>
+        </ul>
+      </section>
 
-      {/* Projects promo */}
-      <motion.section
-        className="projects card overflow-hidden"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
+      <section className="projects card overflow-hidden fade-in-up">
         <Link to="/projects">
-          <motion.img
-            variants={itemVariants}
+          <img
             src={projectImg}
             alt="Projects"
             loading="lazy"
@@ -143,29 +90,14 @@ function Home() {
             style={{ display: "block", objectFit: "cover", maxHeight: 360 }}
           />
         </Link>
-        <motion.h2 className="p-3 fw-bold" variants={itemVariants}>
-          Projects_
-        </motion.h2>
-      </motion.section>
+        <h2 className="p-3 fw-bold">Projects_</h2>
+      </section>
 
-      {/* Education */}
-      <motion.section
-        className="education card p-4 p-md-5 "
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <motion.h2 variants={itemVariants} className="fw-bold">
-          Education_
-        </motion.h2>
-        <motion.p variants={itemVariants} className="fw-bold fst-italic">
-          Weber State University
-        </motion.p>
-        <motion.p variants={itemVariants}>
-          Bachelor of Science – Full Stack Web Development.
-        </motion.p>
-      </motion.section>
+      <section className="education card p-4 p-md-5 fade-in-up">
+        <h2 className="fw-bold">Education_</h2>
+        <p className="fw-bold fst-italic">Weber State University</p>
+        <p>Bachelor of Science – Full Stack Web Development.</p>
+      </section>
     </main>
   );
 }

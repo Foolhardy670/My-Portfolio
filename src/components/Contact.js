@@ -1,8 +1,7 @@
+// Contact.js
 import React, { useRef } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaEnvelope, FaPhone, FaGithub } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "./animations";
 import emailjs from "emailjs-com";
 
 function Contact() {
@@ -32,81 +31,60 @@ function Contact() {
   return (
     <section id="contact" className="contact-page py-5">
       <Container>
-        <motion.div
-          className="text-center mb-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <motion.h2 className="contact-title" variants={itemVariants}>
-            Let's Connect
-          </motion.h2>
-          <motion.p className="contact-subtitle" variants={itemVariants}>
+        <div className="text-center mb-5 fade-in">
+          <h2 className="contact-title">Let's Connect</h2>
+          <p className="contact-subtitle">
             I'd love to hear about your project and how I can help.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <Row className="g-4 justify-content-center">
-          {/* Form */}
           <Col lg={6} md={10}>
-            <motion.div
-              className="contact-card shadow-card p-4"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-            >
-              <motion.h4 className="mb-3" variants={itemVariants}>
-                Let’s connect constellations
-              </motion.h4>
-              <motion.p className="card-subtext" variants={itemVariants}>
-                Let’s align our constellations! Reach out and let the magic of
+            <div className="contact-card shadow-card p-4 fade-in-up">
+              <h4 className="mb-3">Let's connect constellations</h4>
+              <p className="card-subtext">
+                Let's align our constellations! Reach out and let the magic of
                 collaboration illuminate our skies.
-              </motion.p>
+              </p>
 
               <Form ref={form} onSubmit={sendEmail}>
                 <Row>
                   <Col md={6} className="mb-3">
-                    <motion.div variants={itemVariants}>
-                      <Form.Control
-                        type="text"
-                        name="last_name"
-                        placeholder="Last Name"
-                        required
-                      />
-                    </motion.div>
+                    <Form.Control
+                      type="text"
+                      name="last_name"
+                      placeholder="Last Name"
+                      required
+                    />
                   </Col>
                   <Col md={6} className="mb-3">
-                    <motion.div variants={itemVariants}>
-                      <Form.Control
-                        type="text"
-                        name="first_name"
-                        placeholder="First Name"
-                        required
-                      />
-                    </motion.div>
+                    <Form.Control
+                      type="text"
+                      name="first_name"
+                      placeholder="First Name"
+                      required
+                    />
                   </Col>
                 </Row>
 
-                <motion.div className="mb-3" variants={itemVariants}>
+                <div className="mb-3">
                   <Form.Control
                     type="email"
                     name="email"
                     placeholder="Email"
                     required
                   />
-                </motion.div>
+                </div>
 
-                <motion.div className="mb-3" variants={itemVariants}>
+                <div className="mb-3">
                   <Form.Control
                     type="text"
                     name="phone"
                     placeholder="Phone Number"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div className="mb-3" variants={itemVariants}>
+                <div className="mb-3">
                   <Form.Control
                     as="textarea"
                     name="message"
@@ -114,53 +92,32 @@ function Contact() {
                     placeholder="Message"
                     required
                   />
-                </motion.div>
+                </div>
 
-                <motion.div variants={itemVariants}>
-                  <Button type="submit" className="send-btn px-4 py-2">
-                    Send Message
-                  </Button>
-                </motion.div>
+                <Button type="submit" className="send-btn px-4 py-2">
+                  Send Message
+                </Button>
               </Form>
-            </motion.div>
+            </div>
           </Col>
 
-          {/* Other Ways */}
           <Col lg={4} md={10}>
-            <motion.div
-              className="contact-card shadow-card p-4 other-ways-card"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-            >
-              <motion.h5
-                className="text-center mb-4 other-ways-title"
-                variants={itemVariants}
-              >
+            <div className="contact-card shadow-card p-4 other-ways-card fade-in-up">
+              <h5 className="text-center mb-4 other-ways-title">
                 Other Ways to Reach Me
-              </motion.h5>
+              </h5>
 
-              <motion.div
-                className="contact-item d-flex align-items-center mb-4"
-                variants={itemVariants}
-              >
+              <div className="contact-item d-flex align-items-center mb-4">
                 <FaEnvelope className="contact-icon me-3" />
                 <span className="contact-text">Konteysimpore@gmail.com</span>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="contact-item d-flex align-items-center mb-4"
-                variants={itemVariants}
-              >
+              <div className="contact-item d-flex align-items-center mb-4">
                 <FaPhone className="contact-icon me-3" />
                 <span className="contact-text">+1 (240) 505-8123</span>
-              </motion.div>
+              </div>
 
-              <motion.div
-                className="contact-item d-flex align-items-center"
-                variants={itemVariants}
-              >
+              <div className="contact-item d-flex align-items-center">
                 <FaGithub className="contact-icon me-3" />
                 <a
                   href="https://github.com/Foolhardy670"
@@ -170,8 +127,8 @@ function Contact() {
                 >
                   https://github.com/
                 </a>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>

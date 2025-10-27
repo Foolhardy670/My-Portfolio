@@ -1,20 +1,19 @@
+// main.scss
 @use "variables" as *;
-@use "navbar";
-@use "home";
-@use "projects";
-@use "contact";
-
 
 .app {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+
   &.light-mode {
-    background-color: $light-bg;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: $dark-text;
   }
 
   &.dark-mode {
-    background-color: $dark-bg;
+    background: linear-gradient(135deg, #0c0c0c 0%, #2d2d2d 100%);
     color: $light-text;
   }
 }
@@ -24,4 +23,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.page-content {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }

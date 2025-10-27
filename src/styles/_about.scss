@@ -1,3 +1,4 @@
+// _about.scss
 .about-section {
   .about-title {
     font-size: 2.2rem;
@@ -11,9 +12,8 @@
 
   .about-card {
     max-width: 100%;
-
     border-radius: 10px;
-    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
+    transition: all 0.3s ease;
   }
 
   .intro-title {
@@ -31,14 +31,15 @@
   .btn-contact {
     border-radius: 10px;
     background: #0d0d0d;
-    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
     border: none;
     padding: 0.6rem 1.3rem;
     color: #fff;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
 
     &:hover {
       opacity: 0.85;
+      transform: translateY(-2px);
     }
   }
 
@@ -46,39 +47,52 @@
     border-radius: 10px;
     border: 2px solid #000;
     background: #fff;
-    box-shadow: -18px -18px 30px 0 #fff, 18px 18px 30px 0 #d1d9e6;
     padding: 0.55rem 1.3rem;
     margin-left: 1rem;
     font-size: 0.9rem;
     text-decoration: none;
     color: #000;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 
   .about-image-wrapper {
     max-width: 350px;
     margin: 0 auto;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 18px 18px 30px 0 #d1d9e6, -18px -18px 30px 0 #fff;
     overflow: hidden;
+    transition: all 0.3s ease;
 
     .about-image {
       width: 100%;
       height: auto;
       object-fit: cover;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
-  // Mobile adjustments
-  @media (max-width: 768px) {
-    .about-card {
-      text-align: left;
-      margin-left: 2rem;
-      margin-right: 2rem;
+  // Dark mode
+  .app.dark-mode & {
+    .about-subtitle {
+      color: #bbb;
     }
 
-    .about-image-wrapper {
-      margin-top: 2rem;
+    .about-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+    }
+
+    .btn-linkedin {
+      border-color: #fff;
+      background: #333;
+      color: #fff;
     }
   }
 }
