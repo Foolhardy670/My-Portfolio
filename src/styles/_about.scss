@@ -1,98 +1,199 @@
 // _about.scss
+@use "variables";
+
 .about-section {
+  padding: 0 4rem;
+
   .about-title {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: variables.$gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .about-subtitle {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.1rem;
+    color: variables.$muted-text;
+    font-weight: 500;
   }
 
   .about-card {
-    max-width: 100%;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    border-radius: variables.$radius-lg;
+    background: variables.$card-bg-light;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: variables.$shadow-card;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: variables.$gradient-primary;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
   }
 
   .intro-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    background: variables.$gradient-secondary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .about-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: variables.$muted-text;
+    margin-bottom: 2rem;
   }
 
   .btn-contact {
-    border-radius: 10px;
-    background: #0d0d0d;
+    border-radius: variables.$radius;
+    background: variables.$gradient-primary;
     border: none;
-    padding: 0.6rem 1.3rem;
+    padding: 0.8rem 2rem;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
+    box-shadow: variables.$shadow-light;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     &:hover {
-      opacity: 0.85;
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      background: variables.$gradient-secondary;
     }
   }
 
   .btn-linkedin {
-    border-radius: 10px;
-    border: 2px solid #000;
-    background: #fff;
-    padding: 0.55rem 1.3rem;
-    margin-left: 1rem;
-    font-size: 0.9rem;
+    border-radius: variables.$radius;
+    border: 2px solid variables.$primary-color;
+    background: transparent;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
     text-decoration: none;
-    color: #000;
+    color: variables.$primary-color;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     &:hover {
+      background: variables.$gradient-primary;
+      color: white;
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      border-color: transparent;
     }
   }
 
   .about-image-wrapper {
-    max-width: 350px;
+    max-width: 380px;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: variables.$radius-lg;
     overflow: hidden;
-    transition: all 0.3s ease;
+    box-shadow: variables.$shadow-card;
+    transition: all 0.4s ease;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: variables.$gradient-primary;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+      &::before {
+        opacity: 0.1;
+      }
+
+      .about-image {
+        transform: scale(1.05);
+      }
+    }
 
     .about-image {
       width: 100%;
       height: auto;
       object-fit: cover;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
+      transition: transform 0.6s ease;
     }
   }
 
   // Dark mode
   .app.dark-mode & {
     .about-subtitle {
-      color: #bbb;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .about-card {
-      background: #1e1e1e;
-      border: 1px solid #333;
+      background: variables.$card-bg-dark;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .about-text {
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .btn-linkedin {
-      border-color: #fff;
-      background: #333;
-      color: #fff;
+      border-color: variables.$accent-color;
+      color: variables.$accent-color;
+
+      &:hover {
+        background: variables.$gradient-secondary;
+        color: white;
+      }
+    }
+  }
+
+  // Mobile adjustments
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+
+    .about-card {
+      margin: 0 1rem;
+    }
+
+    .about-title {
+      font-size: 2rem;
+    }
+
+    .about-image-wrapper {
+      margin-top: 2rem;
+      max-width: 300px;
+    }
+
+    .btn-contact,
+    .btn-linkedin {
+      width: 100%;
+      margin-bottom: 1rem;
     }
   }
 }

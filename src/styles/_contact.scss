@@ -1,75 +1,189 @@
 // _contact.scss
+@use "variables";
+
 .contact-page {
+  padding: 0 4rem;
+
   .contact-title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: variables.$gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
   }
 
   .contact-subtitle {
-    font-size: 1rem;
-    color: #555;
+    font-size: 1.1rem;
+    color: variables.$muted-text;
+    font-weight: 500;
   }
 
   .contact-card {
-    border-radius: 20px;
-    transition: all 0.3s ease;
+    border-radius: variables.$radius-lg;
+    background: variables.$card-bg-light;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: variables.$shadow-card;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: variables.$gradient-primary;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
   }
 
   .card-subtext {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.95rem;
+    color: variables.$muted-text;
+    line-height: 1.6;
   }
 
   .send-btn {
-    background: #000;
+    background: variables.$gradient-primary;
     color: #fff;
     border: none;
-    font-size: 0.9rem;
-    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: variables.$radius;
+    padding: 0.8rem 2rem;
     transition: all 0.3s ease;
+    box-shadow: variables.$shadow-light;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     &:hover {
-      opacity: 0.9;
       transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      background: variables.$gradient-secondary;
+    }
+  }
+
+  .form-control {
+    border: 2px solid rgba(102, 126, 234, 0.1);
+    border-radius: variables.$radius;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+
+    &:focus {
+      border-color: variables.$primary-color;
+      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.1);
+      background: white;
     }
   }
 
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: variables.$radius;
     transition: all 0.3s ease;
-
-    .contact-icon {
-      font-size: 1.3rem;
-    }
-
-    a,
-    span {
-      font-size: 1rem;
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.3s ease;
-    }
+    background: rgba(102, 126, 234, 0.05);
 
     &:hover {
-      transform: translateX(5px);
+      transform: translateX(8px);
+      background: rgba(102, 126, 234, 0.1);
     }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      background: variables.$gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-text,
+    .contact-link {
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: variables.$dark-text;
+    }
+
+    .contact-link:hover {
+      color: variables.$primary-color;
+    }
+  }
+
+  .other-ways-title {
+    font-weight: 700;
+    background: variables.$gradient-secondary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   // Dark mode
   .app.dark-mode & {
     .contact-subtitle {
-      color: #bbb;
-    }
-
-    .card-subtext {
-      color: #aaa;
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .contact-card {
-      background: #1e1e1e;
-      border: 1px solid #333;
+      background: variables.$card-bg-dark;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-subtext {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: variables.$light-text;
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.15);
+        color: variables.$light-text;
+      }
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-text,
+      .contact-link {
+        color: variables.$light-text;
+      }
+    }
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+
+    .contact-title {
+      font-size: 2rem;
+    }
+
+    .send-btn {
+      width: 100%;
+    }
+
+    .contact-item {
+      padding: 0.8rem;
     }
   }
 }
