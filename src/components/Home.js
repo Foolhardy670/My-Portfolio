@@ -68,14 +68,11 @@ function Home() {
           I'm always open to new opportunities and conversations. Reach out!
         </p>
         <ul className="mb-0">
-          {[
-            "📞 +1 (240) 505 8123",
-            "📧 konteysimpore@gmail.com",
-            "🔗 github.com",
-            "🔗 linkedin.com",
-          ].map((line, idx) => (
-            <li key={idx}>{line}</li>
-          ))}
+          {["📞 +1 (240) 505 8123", "📧 konteysimpore@gmail.com"].map(
+            (line, idx) => (
+              <li key={idx}>{line}</li>
+            )
+          )}
         </ul>
       </section>
 
