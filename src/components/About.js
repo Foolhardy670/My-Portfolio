@@ -1,6 +1,6 @@
 // About.js
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "../styles/_about.scss";
 import aboutImg from "../assets/profile.jpg";
 
