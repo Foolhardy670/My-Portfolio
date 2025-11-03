@@ -1,13 +1,16 @@
 // About.js
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../styles/_about.scss";
 import aboutImg from "../assets/profile.jpg";
 
 function About() {
-  const handleContactScroll = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    // Navigate to contact page
+    navigate("/contact");
   };
 
   return (
@@ -26,24 +29,26 @@ function About() {
               <h4 className="intro-title">Hello My name is Christian.</h4>
               <p className="about-text">
                 Hello World! 🌍 I'm Christian Simpore, a passionate and driven
-                undergraduate student at Weber State University in the vibrant
-                city of Ogden, Utah. As a senior pursuing a degree in web
-                development, I'm on a mission to turn my love for technology
-                into impact solutions that make a difference. I'm excited to
-                take the next big leap in my journey and partner with a
-                forward-thinking company that values innovation, collaboration,
-                and growth. If you're looking for someone who's enthusiastic,
-                curious, and ready to contribute to meaningful projects, let's
-                connect! 🤝 Feel free to reach out via the contact form below or
-                check out my work and connect with me here:
+                senior at Weber State University in Ogden, Utah, pursuing a
+                Bachelor's degree in Web and User Experience Design. I'm
+                dedicated to transforming ideas into impactful, user-centered
+                digital experiences through clean, responsive, and accessible
+                front-end development. With a strong foundation in HTML, CSS,
+                JavaScript, React, and UX/UI design principles, I enjoy building
+                interfaces that not only look great but also enhance usability
+                and engagement. I'm eager to collaborate with a forward-thinking
+                company that values innovation, creativity, and continuous
+                learning. If you're looking for someone who is curious,
+                detail-oriented, and ready to contribute to meaningful projects,
+                let's connect! 🤝
               </p>
 
               <div className="d-flex gap-3 mt-4 flex-wrap">
-                <button className="btn-contact" onClick={handleContactScroll}>
+                <button className="btn-contact" onClick={handleContactClick}>
                   Contact Me
                 </button>
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/in/christian-simpore-b7b38025b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-linkedin"
