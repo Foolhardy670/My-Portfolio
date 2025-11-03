@@ -92,8 +92,13 @@ function Home() {
 
       <section className="education card p-4 p-md-5 fade-in-up">
         <h2 className="fw-bold">Education_</h2>
-        <p className="fw-bold fst-italic">Weber State University</p>
-        <p>Bachelor of Science – Full Stack Web Development.</p>
+        <p className="fw-bold ">
+          Weber State University - <i>Ogden, Utah</i>
+        </p>
+        <p>
+          <span className="fw-bold">Bachelor of Science</span> - Web and User
+          Experience Design - Full Stack Web Development
+        </p>
       </section>
     </main>
   );
