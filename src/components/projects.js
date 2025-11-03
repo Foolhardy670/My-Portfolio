@@ -29,7 +29,7 @@ const projects = [
       "Weather App is a React-based application designed to fetch and display real-time weather information based on user input using weather API integration.",
     img: weatherapp,
     techStack: ["React.js", "JavaScript", "HTML/CSS", "API Integration"],
-    github: "https://github.com/",
+    github: "https://github.com/Foolhardy670/Weather-App.git",
   },
 
   {
